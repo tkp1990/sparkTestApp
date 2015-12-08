@@ -1,0 +1,12 @@
+build
+reload
+compile
+ls
+exit
+clean
+reload
+compile
+evicted
+refresh
+update
+compile

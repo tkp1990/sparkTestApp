@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: dk.brics.automaton:automaton:1.11-8:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/dk.brics.automaton/automaton/jars/automaton-1.11-8.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/dk.brics.automaton/automaton/docs/automaton-1.11-8-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/dk.brics.automaton/automaton/srcs/automaton-1.11-8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

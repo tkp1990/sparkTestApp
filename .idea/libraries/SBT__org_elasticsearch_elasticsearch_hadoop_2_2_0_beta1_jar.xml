@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: org.elasticsearch:elasticsearch-hadoop:2.2.0-beta1:jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.elasticsearch/elasticsearch-hadoop/jars/elasticsearch-hadoop-2.2.0-beta1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.elasticsearch/elasticsearch-hadoop/docs/elasticsearch-hadoop-2.2.0-beta1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.elasticsearch/elasticsearch-hadoop/srcs/elasticsearch-hadoop-2.2.0-beta1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
