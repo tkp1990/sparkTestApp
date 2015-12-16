@@ -1,0 +1,8 @@
+project/target
+project/project
+.class
+.DS_Store
+*.class
+.idea/*.xml
+.idea
+target/*
