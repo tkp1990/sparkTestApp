@@ -16,6 +16,11 @@ object RottenTomatoes {
     val conf = new org.apache.spark.SparkConf()
       .setMaster("local[*]")
       .setAppName("RottenTomatoesTest")
+      .set("spark.driver.allowMultipleContexts", "true")
+      .set("spark.executor.memory", "3096m")
+      .set("spark.executor.cores", "4")
+      .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+      .set("spark.kryoserializer.buffer.max.mb", "256")
 
     implicit val sc = new SparkContext(conf)
     val sqlContext = new SQLContext(sc);
@@ -64,12 +69,12 @@ object RottenTomatoes {
     val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / test.count()
     println("---------------Prediction Values for test data!!---------------")
     predictionAndLabel.take(10).foreach(println)
+
     /**
      * Converting RDD to a DataFrame
      * Creating a Table Structure, which can be queried using SQL or Sparks query language
      */
-    val header = reviews
-    println(header)
+
     val a: RDD[RottenTomatoes.review] = reviews.filter(x => !x(0).contains("PhraseId")).map(x => review(x(0).toInt, x(1).toInt, x(2), x(3).toInt))
     //a.foreach(println)
     val df: DataFrame = sqlContext.createDataFrame(a: RDD[RottenTomatoes.review])

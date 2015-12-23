@@ -743,9 +743,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-agent;0.13.8!test-agent.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8!apply-macro.jar
-[debug] :: resolution report :: resolve 392ms :: artifacts dl 12ms
+[debug] :: resolution report :: resolve 337ms :: artifacts dl 12ms
 [debug] 	report for default#sparkestemp$sbt_2.10;1.0 default produced in /Users/kenneththomas/IdeaProjects/SparkEsTemp/target/resolution-cache/reports/default-sparkestemp$sbt_2.10-default.xml
-[debug] 	resolve done (392ms resolve - 12ms download)
+[debug] 	resolve done (337ms resolve - 12ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#sparkestemp$sources_2.10;1.0
 [debug] 	confs: [default]
@@ -1128,6 +1128,6 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_3;0.13.8!precompiled-2_9_3.jar(src)
 [debug] 	[NOT REQUIRED] net.virtual-void#sbt-dependency-graph;0.7.5!sbt-dependency-graph.jar(src)
 [debug] 	[NOT REQUIRED] com.github.mdr#ascii-graphs_2.10;0.0.3!ascii-graphs_2.10.jar(src)
-[debug] :: resolution report :: resolve 80ms :: artifacts dl 13ms
+[debug] :: resolution report :: resolve 129ms :: artifacts dl 24ms
 [debug] 	report for default#sparkestemp$sources_2.10;1.0 default produced in /Users/kenneththomas/IdeaProjects/SparkEsTemp/target/resolution-cache/reports/default-sparkestemp$sources_2.10-default.xml
-[debug] 	resolve done (80ms resolve - 13ms download)
+[debug] 	resolve done (129ms resolve - 24ms download)

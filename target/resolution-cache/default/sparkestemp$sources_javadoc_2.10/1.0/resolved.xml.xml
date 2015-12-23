@@ -4,7 +4,7 @@
 		module="sparkestemp$sources_javadoc_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20151207184630"
+		publication="20151223162206"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
@@ -24,10 +24,6 @@
 	<publications>
 	</publications>
 	<dependencies>
-		<dependency org="org.scala-lang" name="scala-library" rev="2.10.4" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile);scala-tool->default(compile)" info.apiURL="http://www.scala-lang.org/api/2.10.4/">
-			<artifact name="scala-library" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="scala-library" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
-		</dependency>
 		<dependency org="org.elasticsearch" name="elasticsearch" rev="1.7.1" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
 			<artifact name="elasticsearch" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 		</dependency>
@@ -799,6 +795,14 @@
 			<artifact name="joda-convert" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="joda-convert" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="io.spray" name="spray-json_2.10" rev="1.3.2" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
+			<artifact name="spray-json_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="spray-json_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.10.5" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)" info.apiURL="http://www.scala-lang.org/api/2.10.5/">
+			<artifact name="scala-library" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scala-library" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="org.apache.spark" name="spark-graphx_2.10" rev="1.5.1" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
 			<artifact name="spark-graphx_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="spark-graphx_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -808,7 +812,6 @@
 			<artifact name="core" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="net.sourceforge.f2j" name="arpack_combined_all" rev="0.1" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
-			<artifact name="arpack_combined_all" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="arpack_combined_all" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.apache.spark" name="spark-mllib_2.10" rev="1.5.1" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
@@ -871,10 +874,6 @@
 			<artifact name="FastInfoset" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="FastInfoset" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
-		<dependency org="javax.xml.bind" name="jsr173_api" rev="1.0" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
-			<artifact name="jsr173_api" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="jsr173_api" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
-		</dependency>
 		<dependency org="org.apache.spark" name="spark-hive_2.10" rev="1.5.1" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
 			<artifact name="spark-hive_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="spark-hive_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -885,7 +884,6 @@
 		</dependency>
 		<dependency org="javolution" name="javolution" rev="5.5.1" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
 			<artifact name="javolution" type="src" ext="jar" conf="sources" e:classifier="sources"/>
-			<artifact name="javolution" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.jodd" name="jodd-core" rev="3.5.2" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
 			<artifact name="jodd-core" type="src" ext="jar" conf="sources" e:classifier="sources"/>
@@ -908,7 +906,6 @@
 			<artifact name="commons-codec" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.apache.hadoop" name="hadoop-client" rev="2.4.0" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
-			<artifact name="hadoop-client" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="hadoop-client" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.apache.hadoop" name="hadoop-common" rev="2.4.0" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
@@ -973,6 +970,18 @@
 			<artifact name="univocity-parsers" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="univocity-parsers" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="org.scalaz" name="scalaz-core_2.10" rev="7.1.0" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
+			<artifact name="scalaz-core_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scalaz-core_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.scalaz" name="scalaz-effect_2.10" rev="7.1.0" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
+			<artifact name="scalaz-effect_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scalaz-effect_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.scalaz" name="scalaz-typelevel_2.10" rev="7.1.0" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
+			<artifact name="scalaz-typelevel_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scalaz-typelevel_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="commons-logging" name="commons-logging" rev="1.2" transitive="false" conf="runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
 			<artifact name="commons-logging" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="commons-logging" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
@@ -984,9 +993,37 @@
 			<artifact name="hadoop-yarn-server-nodemanager" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="hadoop-yarn-server-nodemanager" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
+		<dependency org="org.scalaz" name="scalaz-scalacheck-binding_2.10" rev="7.1.0" transitive="false" conf="test->default(compile);test-internal->default(compile)">
+			<artifact name="scalaz-scalacheck-binding_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scalaz-scalacheck-binding_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.scalaz" name="scalaz-concurrent_2.10" rev="7.1.0" transitive="false" conf="test->default(compile);test-internal->default(compile)">
+			<artifact name="scalaz-concurrent_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scalaz-concurrent_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.scalaz" name="scalaz-xml_2.10" rev="7.1.0" transitive="false" conf="test->default(compile);test-internal->default(compile)">
+			<artifact name="scalaz-xml_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scalaz-xml_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.scalaz" name="scalaz-iteratee_2.10" rev="7.1.0" transitive="false" conf="test->default(compile);test-internal->default(compile)">
+			<artifact name="scalaz-iteratee_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scalaz-iteratee_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.scalacheck" name="scalacheck_2.10" rev="1.11.4" transitive="false" conf="test->default(compile);test-internal->default(compile)">
+			<artifact name="scalacheck_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scalacheck_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.scala-sbt" name="test-interface" rev="1.0" transitive="false" conf="test->default(compile);test-internal->default(compile)">
+			<artifact name="test-interface" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="test-interface" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
 		<dependency org="org.scala-lang" name="scala-compiler" rev="2.10.4" transitive="false" conf="scala-tool->default(compile)">
 			<artifact name="scala-compiler" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="scala-compiler" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.10.4" transitive="false" conf="scala-tool->default(compile)" info.apiURL="http://www.scala-lang.org/api/2.10.4/">
+			<artifact name="scala-library" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scala-library" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.scala-lang" name="jline" rev="2.10.4" transitive="false" conf="scala-tool->default(compile)">
 			<artifact name="jline" type="src" ext="jar" conf="sources" e:classifier="sources"/>

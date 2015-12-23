@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="main/resources/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <script src="main/resources/nv.d3.min.js"></script>
+
+    <style>
+        text {
+        font: 12px sans-serif;
+        }
+        svg {
+        display: block;
+        }
+        html, body, #chart1, svg {
+        margin: 0px;
+        padding: 0px;
+        height: 100%;
+        width: 100%;
+        }
+    </style>
+</head>
+<body class='with-3d-shadow with-transitions'>
+<div id="chart1">
+    <svg></svg>
+</div>
+<script>
+    nv.addGraph(function() {
+        var chart = nv.models.discreteBarChart()
+            .x(function(d) { return d.ips })
+            .y(function(d) { return d.pings })
+            .staggerLabels(true)
+            .staggerLabels(historicalBarChart[0].values.length > 8)
+            .showValues(true)
+            .duration(250)
+            ;
+        d3.select('#chart1 svg')
+            .datum(historicalBarChart)
+            .call(chart);
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
+
+    historicalBarChart = [{
+            "key": "Cumulative Return",
+            "values": [
+                    {"ips":"66.213.206.2","pings":1},
+                    {"ips":"d97082.upc-d.chello.nl","pings":1},
+                    {"ips":"195.246.13.119","pings":12},
+                    {"ips":"lj1117.inktomisearch.com","pings":3},
+                    {"ips":"lj1027.inktomisearch.com","pings":2},
+                    {"ips":"ic8234.upco.es","pings":4},
+                    {"ips":"adsl-64-173-42-65.dsl.snfc21.pacbell.net","pings":1},
+                    {"ips":"206-15-133-153.dialup.ziplink.net","pings":1},
+                    {"ips":"c-24-20-163-223.client.comcast.net","pings":7},
+                    {"ips":"200.160.249.68.bmf.com.br","pings":2},
+                    {"ips":"lj1153.inktomisearch.com","pings":2},
+                    {"ips":"ip-200-56-225-61-mty.marcatel.net.mx","pings":1},
+                    {"ips":"lj1216.inktomisearch.com","pings":1},
+                    {"ips":"208-186-146-13.nrp3.brv.mn.frontiernet.net","pings":2},
+                    {"ips":"216-160-111-121.tukw.qwest.net","pings":12},
+                    {"ips":"proxy0.haifa.ac.il","pings":19},
+                    {"ips":"65-37-13-251.nrp2.roc.ny.frontiernet.net","pings":5},
+                    {"ips":"ts05-ip44.hevanet.com","pings":16},
+                    {"ips":"spot.nnacorp.com","pings":5},
+                    {"ips":"lj1212.inktomisearch.com","pings":1},
+                    {"ips":"lj1120.inktomisearch.com","pings":1},
+                    {"ips":"dialup-5-81.tulane.edu","pings":5},
+                    {"ips":"66-194-6-71.gen.twtelecom.net","pings":1},
+                    {"ips":"64-93-34-186.client.dsl.net","pings":1},
+                    {"ips":"lj1223.inktomisearch.com","pings":2},
+                    {"ips":"1513.cps.virtua.com.br","pings":1},
+                    {"ips":"64-249-27-114.client.dsl.net","pings":1},
+                    {"ips":"fw.kcm.org","pings":2},
+                    {"ips":"prxint-sxb3.e-i.net","pings":14},
+                    {"ips":"cr020r01-3.sac.overture.com","pings":44},
+                    {"ips":"pd95f99f2.dip.t-dialin.net","pings":1},
+                    {"ips":"212.21.228.26","pings":1},
+                    {"ips":"lj1016.inktomisearch.com","pings":1},
+                    {"ips":"80.58.14.235.proxycache.rima-tde.net","pings":4},
+                    {"ips":"ip68-228-43-49.tc.ph.cox.net","pings":22},
+                    {"ips":"194.151.73.43","pings":4},
+                    {"ips":"200.222.33.33","pings":1},
+                    {"ips":"12.22.207.235","pings":1},
+                    {"ips":"mail.geovariances.fr","pings":23},
+                    {"ips":"66-194-6-79.gen.twtelecom.net","pings":2},
+                    {"ips":"128.227.88.79","pings":14},
+                    {"ips":"p5083cd5d.dip0.t-ipconnect.de","pings":1},
+                    {"ips":"watchguard.cgmatane.qc.ca","pings":2},
+                    {"ips":"80.58.35.111.proxycache.rima-tde.net","pings":1},
+                    {"ips":"lj1018.inktomisearch.com","pings":1},
+                    {"ips":"ladybug.cns.vt.edu","pings":5},
+                    {"ips":"2-110.cnc.bc.ca","pings":11},
+                    {"ips":"lj1025.inktomisearch.com","pings":1},
+                    {"ips":"lj1115.inktomisearch.com","pings":1},
+                    {"ips":"cpe-203-51-137-224.vic.bigpond.net.au","pings":10},
+                    {"ips":"1-320.cnc.bc.ca","pings":4},
+                    {"ips":"lj1089.inktomisearch.com","pings":1},
+                    {"ips":"lj1061.inktomisearch.com","pings":1},
+                    {"ips":"208-38-57-205.ip.cal.radiant.net","pings":11},
+                    {"ips":"pd9e50809.dip.t-dialin.net","pings":1},
+                    {"ips":"68-174-110-154.nyc.rr.com","pings":3},
+                    {"ips":"195.11.231.210","pings":1},
+                    {"ips":"lj1036.inktomisearch.com","pings":7},
+                    {"ips":"c-24-11-14-147.client.comcast.net","pings":2},
+                    {"ips":"ts04-ip92.hevanet.com","pings":28},
+                    {"ips":"219.95.17.51","pings":1},
+                    {"ips":"","pings":12},
+                    {"ips":"px7wh.vc.shawcable.net","pings":1},
+                    {"ips":"trrc02m01-40.bctel.ca","pings":4},
+                    {"ips":"lj1164.inktomisearch.com","pings":2},
+                    {"ips":"212.92.37.62","pings":14},
+                    {"ips":"calcite.rhyolite.com","pings":4},
+                    {"ips":"142.27.64.35","pings":7},
+                    {"ips":"wwwcache.lanl.gov","pings":1},
+                    {"ips":"lj1052.inktomisearch.com","pings":1},
+                    {"ips":"acbf6930.ipt.aol.com","pings":2},
+                    {"ips":"market-mail.panduit.com","pings":29},
+                    {"ips":"lj1168.inktomisearch.com","pings":1},
+                    {"ips":"nb-bolz.cremona.polimi.it","pings":1},
+                    {"ips":"lj1162.inktomisearch.com","pings":2},
+                    {"ips":"lj1160.inktomisearch.com","pings":1},
+                    {"ips":"pool-68-160-195-60.ny325.east.verizon.net","pings":5},
+                    {"ips":"lj1090.inktomisearch.com","pings":1},
+                    {"ips":"fw.aub.dk","pings":2},
+                    {"ips":"lj1159.inktomisearch.com","pings":1},
+                    {"ips":"lj1007.inktomisearch.com","pings":1},
+                    {"ips":"10.0.0.153","pings":270},
+                    {"ips":"h24-71-249-14.ca.shawcable.net","pings":6}
+                ]
+            }];
+</script>
+</body>
+</html>

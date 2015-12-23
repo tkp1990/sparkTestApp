@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="main/resources/nv.d3.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+    <script src="main/resources/nv.d3.min.js"></script>
+
+    <style>
+        text {
+        font: 12px sans-serif;
+        }
+        svg {
+        display: block;
+        }
+        html, body, #chart1, svg {
+        margin: 0px;
+        padding: 0px;
+        height: 100%;
+        width: 100%;
+        }
+    </style>
+</head>
+<body class='with-3d-shadow with-transitions'>
+<div id="chart1">
+    <svg></svg>
+</div>
+
+<script>
+    nv.addGraph(function() {
+        var chart = nv.models.discreteBarChart()
+            .x(function(d) { return d.code })
+            .y(function(d) { return d.count })
+            .staggerLabels(true)
+            .staggerLabels(historicalBarChart[0].values.length > 8)
+            .showValues(true)
+            .duration(250)
+            ;
+        d3.select('#chart1 svg')
+            .datum(historicalBarChart)
+            .call(chart);
+        nv.utils.windowResize(chart.update);
+        return chart;
+    });
+
+    historicalBarChart = [{
+            "key": "Cumulative Return",
+            "values": [
+            {"code":"0","count":12},
+            {"code":"404","count":5},
+            {"code":"200","count":1263},
+            {"code":"302","count":6},
+            {"code":"401","count":123},
+            {"code":"304","count":137}
+             ]
+            }];
+
+</script>
+</body>
+</html>

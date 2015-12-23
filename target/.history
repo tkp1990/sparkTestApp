@@ -10,3 +10,7 @@ evicted
 refresh
 update
 compile
+import scalaz._
+val a = Map()
+clear
+run
