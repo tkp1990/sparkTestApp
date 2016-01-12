@@ -27,6 +27,7 @@ object App {
     val airports = Map("arrival" -> "Otopeni", "SFO" -> "San Fran")
 
     getJsonData(url)
+    getCount()
     /*
     getCount()
     val rdd = sc.makeRDD(Seq(acc1, acc2))
@@ -38,11 +39,9 @@ object App {
 
   def getCount() (implicit sc: SparkContext)= {
     val conf = new JobConf()
-    conf.set("es.nodes","127.0.0.1:9200")
-    conf.set("es.resource", "bank/account n" +
-      "" +
-      "")
-    conf.set("es.query", "/_search?q=*&pretty")
+    conf.set("es.nodes", "localhost")
+    conf.set("es.port", "9200")
+    conf.set("es.resource", "bank/account")
     val esRDD = sc.newAPIHadoopRDD(conf, classOf[EsInputFormat[Text, MapWritable]],
       classOf[Text], classOf[MapWritable])
     print("ES: ",esRDD)

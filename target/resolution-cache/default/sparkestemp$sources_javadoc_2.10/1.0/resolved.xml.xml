@@ -4,7 +4,7 @@
 		module="sparkestemp$sources_javadoc_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20151223162206"
+		publication="20160104194521"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
@@ -802,6 +802,10 @@
 		<dependency org="org.scala-lang" name="scala-library" rev="2.10.5" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)" info.apiURL="http://www.scala-lang.org/api/2.10.5/">
 			<artifact name="scala-library" type="src" ext="jar" conf="sources" e:classifier="sources"/>
 			<artifact name="scala-library" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
+		</dependency>
+		<dependency org="com.github.tototoshi" name="scala-csv_2.10" rev="1.2.2" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
+			<artifact name="scala-csv_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>
+			<artifact name="scala-csv_2.10" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 		</dependency>
 		<dependency org="org.apache.spark" name="spark-graphx_2.10" rev="1.5.1" transitive="false" conf="compile->default(compile);runtime->default(compile);test->default(compile);compile-internal->default(compile);runtime-internal->default(compile);test-internal->default(compile)">
 			<artifact name="spark-graphx_2.10" type="src" ext="jar" conf="sources" e:classifier="sources"/>

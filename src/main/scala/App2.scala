@@ -2,7 +2,9 @@
  * Created by kenneththomas on 11/26/15.
  */
 
-import LogAnalysis.innerMap
+import java.io.PrintWriter
+import java.nio.file.Paths
+
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.io.{Text, MapWritable}
 import org.apache.spark.SparkContext
@@ -12,16 +14,20 @@ import org.apache.spark.sql.types.{StructType, StructField, StringType}
 import org.elasticsearch.hadoop.mr.EsInputFormat
 import org.elasticsearch.spark._
 import spray.json._
+import sun.nio.cs.StandardCharsets
 
+import scala.StringBuilder
 import scala.collection.immutable.{SortedMap, HashMap}
 import scala.collection.mutable
 import scalaz._
-
+/**
+ *
+ * My test canvas to get request urls from log files and make a sunBurst representation of the data.
+ */
 object App2 extends DefaultJsonProtocol{
 
   val url = """src/main/resources/"""
   def main(args:Array[String]) = {
-
     val conf = new org.apache.spark.SparkConf()
       .setMaster("local[*]")
       .setAppName("SprakES")
@@ -34,29 +40,19 @@ object App2 extends DefaultJsonProtocol{
     implicit val spark = new org.apache.spark.SparkContext(conf)
     implicit val p = new AccessLogParser()
 
-    val a1 = collection.mutable.HashMap("root" -> collection.mutable.HashMap("twiki" -> collection.mutable.HashMap("bin" -> collection.mutable.HashMap
-    ("view" -> collection.mutable.HashMap("Main" -> collection.mutable.HashMap("PeterThoeny" -> collection.mutable.HashMap()))))))
-
-    val b2 = collection.mutable.HashMap("root" -> collection.mutable.HashMap("twiki1" -> collection.mutable.HashMap("bin1" -> collection.mutable.HashMap
-    ("view" -> collection.mutable.HashMap("Main1" -> collection.mutable.HashMap("PeterThoeny1" -> collection.mutable.HashMap()))))))
-
-    val m = merge(a1.asInstanceOf[innerMap], b2.asInstanceOf[innerMap])
-    m.foreach(println)
-
-
-    val accessLog = spark.textFile(url+"testlog")
+    val accessLog = spark.textFile(url+"access_log")
     val requesturl = accessLog.map(line => getRequestURL(p.parseRecord(line))).filter(x => x.toString.contains("/"))
 
-    implicit var count: scala.collection.mutable.HashMap[String, Int] = new scala.collection.mutable.HashMap[String, Int]()
-
     val mainList: RDD[List[String]] = requesturl flatMap ( r => r.toString split("\\?") map (x => parser(x.split("/").filter(x => !x.contains("=")).toList).valuesIterator.toList))
+    implicit val count: Map[String, Int] = getCount(mainList)
+    count.foreach(println)
     val returnData = getData(mainList)
     println("---------------------------------Return data-------------------------------")
-    returnData.foreach(println)
-    makeJSON(returnData.asInstanceOf[innerMap])
-    //meth()
-    //meth2()
-    //getGreyLogData()
+    //returnData.foreach(println)
+    //makeJSON(returnData.asInstanceOf[innerMap])
+    val b = formatMap(returnData.asInstanceOf[innerMap], false, 0)
+    println(b)
+    new PrintWriter(url+ "sunBurstData.json") { write(b); close }
     spark.stop()
   }
 
@@ -128,8 +124,9 @@ object App2 extends DefaultJsonProtocol{
     sM.+(0 -> "root")
   }
 
-  def getCount(input: RDD[List[String]]) = {
-    val count = input.flatMap(line => line.map(word => (word, 1)).toMap).reduceByKey(_ + _)
+  def getCount(input: RDD[List[String]]): Map[String, Int] = {
+    val count = input.flatMap(line => line.map(word => (word, 1)).toMap).reduceByKey(_ + _).collect().toMap
+    count
   }
 
   type innerMap = mutable.HashMap[String, Any]
@@ -192,37 +189,37 @@ object App2 extends DefaultJsonProtocol{
     println(a)
   }
 
-  var ret: String = ""
+  var ret: mutable.StringBuilder = new StringBuilder()
   def formatMap(map: innerMap, flag: Boolean, bracketCount: Int)(implicit count: Map[String, Int]): String ={
-
-    map.keySet.size > 0 match {
-      case true =>
-        for(k <- map.keySet){
-          ret += ("\"name\":" + "\"" +k+ "\"")
-          ret += (",")
-          ret += ("\"children\":[")
-          ret += formatMap(map.get(k).get.asInstanceOf[innerMap], false, 0)
-        }
-        ret
-      case false =>
-        for(k <- map.keySet){
-          ret += "{"
-          ret += ("\"name\":" + "\"" + k + "\"")
-          ret += (",")
-          ret += ("\"size\":" + "\"" +count.get(k)+ "\"")
-          ret += "}"
-        }
-        ret
+    var temp: String = ""
+    val iter = map.keySet.iterator
+    //for(k <- map.keySet){
+    while(iter.hasNext){
+      val k = iter.next().toString()
+      temp += ("{\"name\":" + "\"" +k+ "\"")
+      temp += (",")
+      val m = map.get(k).get.asInstanceOf[mutable.HashMap[String, Any]]
+      if(m.size > 0){
+        temp += ("\"children\":[")
+      }else{
+        temp += ("\"size\":" + "\"" +count.get(k).get+ "\"")
+        temp += "}"
+        /*if(iter.hasNext){
+          temp += ","
+        }*/
+      }
+      temp += formatMap(map.get(k).get.asInstanceOf[innerMap], false, 0)
+      if(!iter.hasNext && !k.equals("root")){
+        temp += "]"
+        temp += "}"
+      }
+      if(iter.hasNext){
+        temp += ","
+      }
     }
+    (ret + temp.toString).toString
   }
 
-  trait parentChild{
-    type T
-    val name: String
-  }
-
-  case class parent( name:String, children: Seq[parentChild]) extends parentChild
-  case class child( name:String, size: Integer) extends parentChild
 
   implicit object MapJsonFormat extends JsonFormat[Map[String, Any]] {
 

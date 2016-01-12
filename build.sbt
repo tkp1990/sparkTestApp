@@ -22,6 +22,8 @@ libraryDependencies += "com.typesafe.play" %% "play-json" % "2.3.4"
 
 libraryDependencies += "io.spray" %%  "spray-json" % "1.3.2"
 
+libraryDependencies += "com.github.tototoshi" %% "scala-csv" % "1.2.2"
+
 libraryDependencies ++= Seq(
   "org.apache.spark" % "spark-graphx_2.10" % "1.5.1",
   "org.apache.spark" % "spark-mllib_2.10" % "1.5.1",

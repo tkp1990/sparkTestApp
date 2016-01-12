@@ -1,4 +1,4 @@
-package salesPredictionTest
+package salesPrediction
 
 /**
  * Created by kenneththomas on 12/7/15.

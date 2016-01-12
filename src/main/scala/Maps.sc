@@ -33,10 +33,11 @@ for(a <- b.keySet){
 }
 m1
 m2
-
 var s: String = ""
-
 s += ("\"name\":" + "\"" +"root"+ "\"")
 s += (",")
 s += ("\"children\":" + "\"" +"["+ "\"")
 s
+var list1:List[String] = List("1980-04-01", "33")
+var list3 = List("abcd", "ads")
+list1 ++ list3

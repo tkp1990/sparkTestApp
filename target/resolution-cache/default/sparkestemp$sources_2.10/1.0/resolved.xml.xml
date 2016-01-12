@@ -4,7 +4,7 @@
 		module="sparkestemp$sources_2.10"
 		revision="1.0"
 		status="integration"
-		publication="20151223162204"
+		publication="20160104194519"
 	/>
 	<configurations>
 		<conf name="default" visibility="public" description=""/>
