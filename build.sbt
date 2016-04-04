@@ -2,48 +2,46 @@ name := "SparkEsTemp"
 
 version := "1.0"
 
-scalaVersion := "2.10.4"
+scalaVersion := "2.10.5"
 
-val scalazVersion = "7.1.0"
 
-crossScalaVersions  := Seq("2.11.7", "2.10.4")
-
-libraryDependencies += "org.elasticsearch" % "elasticsearch" % "1.7.1"
-
-libraryDependencies += "org.elasticsearch" % "elasticsearch-hadoop" % "2.2.0-beta1" excludeAll ExclusionRule(organization = "javax.servlet")
-
-libraryDependencies += "com.sun.jersey" % "jersey-servlet" % "1.19"
-
-libraryDependencies += "org.apache.spark" %% "spark-core" % "1.5.1"
-
-libraryDependencies += "org.apache.spark" %% "spark-streaming" % "1.5.1"
-
-libraryDependencies += "com.typesafe.play" %% "play-json" % "2.3.4"
+//crossScalaVersions  := Seq("2.11.7", "2.10.4")
 
 libraryDependencies += "io.spray" %%  "spray-json" % "1.3.2"
 
 libraryDependencies += "com.github.tototoshi" %% "scala-csv" % "1.2.2"
 
+libraryDependencies ++= Dependencies.sparkAkkaHadoop
+
+
 libraryDependencies ++= Seq(
   "org.apache.spark" % "spark-graphx_2.10" % "1.5.1",
   "org.apache.spark" % "spark-mllib_2.10" % "1.5.1",
   "org.apache.spark" % "spark-hive_2.10" % "1.5.1",
-  "org.apache.hadoop" % "hadoop-client" % "2.4.0",
-  "com.databricks" % "spark-csv_2.10" % "1.2.0",
-
-  "org.scalaz" %% "scalaz-core" % scalazVersion,
-  "org.scalaz" %% "scalaz-effect" % scalazVersion,
-  "org.scalaz" %% "scalaz-typelevel" % scalazVersion,
-  "org.scalaz" %% "scalaz-scalacheck-binding" % scalazVersion % "test"
+  "org.apache.poi" % "poi" % "3.9",
+  "org.mongodb" % "mongo-java-driver" % "3.0.4",
+  "org.mongodb" %% "casbah" % "3.1.0",
+  "com.typesafe.play" % "play-json_2.10" % "2.4.6" exclude("com.fasterxml.jackson.core", "jackson-databind")
 
 )
 
-resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
+dependencyOverrides ++= Set(
+  "com.fasterxml.jackson.core" % "jackson-databind" % "2.4.4"
+)
 
-resolvers += "bintray-spark-packages" at
-  "https://dl.bintray.com/spark-packages/maven/"
+resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
-resolvers += "Typesafe Simple Repository" at
-  "http://repo.typesafe.com/typesafe/simple/maven-releases/"
+resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
 
-//resolvers += "fakod-snapshots" at "https://raw.github.com/FaKod/fakod-mvn-repo/master/snapshots"
+resolvers += "bintray-spark-packages" at "https://dl.bintray.com/spark-packages/maven/"
+
+initialCommands in console :=
+  """
+    |import org.apache.spark._
+    |import org.apache.spark.streaming._
+    |import org.apache.spark.streaming.StreamingContext._
+    |import org.apache.spark.streaming.dstream._
+    |import akka.actor.{ActorSystem, Props}
+    |import com.typesafe.config.ConfigFactory
+    |import org.elasticsearch.spark._
+  """.stripMargin

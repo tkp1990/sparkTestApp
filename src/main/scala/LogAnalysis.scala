@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonValue
 import org.apache.spark.SparkContext
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SQLContext
-import org.jgrapht.Graph
-import play.api.libs.json.JsObject
-import play.api.libs.json.Json
 
 import scala.StringBuilder
 import scala.collection.immutable.{HashMap, SortedMap}

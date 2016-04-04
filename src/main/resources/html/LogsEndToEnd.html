@@ -39,30 +39,28 @@
 		var h = 600;
                 var padding = 150;
 
-		var datasetfull;
-                var dataset;
-
 	     d3.csv("../out.csv", function(data){
-
-                datasetfull = data;
+                var datasetfull = data,
                 dataset = data;
 
                    var startchart = dataset.length-31;
                    var endchart = dataset.length-1;
                    var active_gs = 1;
-	           var layers;
+	               var layers;
                    var colnames;
                    var numcolsfull;
                    var colnamesfull;
                    var activebar;
 
-                   readDate = d3.time.format("%Y-%m-%d").parse
-                   readDate2 = d3.time.format("%m/%d/%y").parse
-                   cleanDate = d3.time.format("%m/%d/%y")
+                   var readDate = d3.time.format("%Y-%m-%d").parse,
+                   readDate2 = d3.time.format("%m/%d/%y").parse,
+                   cleanDate = d3.time.format("%m/%d/%y");
+
 
                   dataset.forEach(function(d){
-                    d.date = cleanDate(readDate(d.date));}
-                  );
+                    if ( !d.date ) { return; }
+                    d.date = cleanDate(readDate(d.date));
+                  });
 
                    var instuctions = d3.select("body")
                       .append("div")
@@ -167,7 +165,6 @@
                                .attr("onforminput","value = datestartslider.valueAsNumber;");
 
 
-
                          var dateend = datesliders.append("div")
                             .attr("id","dateend")
                             .text("End: ")
@@ -235,7 +232,7 @@
 
                    var title = d3.select("#titlespace").append("h2")
                       .attr("id","title")
-                      .text("Bars from:  " + datasetfull[startchart].date + "  -  " + datasetfull[endchart].date);
+                      .text("Bars from:  " + datasetfull[startindex].date + "  -  " + datasetfull[endchart].date);
 
                 } // end chart title
 

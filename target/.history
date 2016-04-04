@@ -14,3 +14,16 @@ import scalaz._
 val a = Map()
 clear
 run
+compile
+update
+compile
+update
+last *:update
+update
+compile
+update
+libraryDependencies += "org.mongodb" % "mongo-java-driver" % "3.2.2"
+update
+compile
+update
+compile

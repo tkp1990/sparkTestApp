@@ -19,7 +19,6 @@ import sun.nio.cs.StandardCharsets
 import scala.StringBuilder
 import scala.collection.immutable.{SortedMap, HashMap}
 import scala.collection.mutable
-import scalaz._
 /**
  *
  * My test canvas to get request urls from log files and make a sunBurst representation of the data.

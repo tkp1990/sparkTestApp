@@ -6,3 +6,6 @@ project/project
 .idea/*.xml
 .idea
 target/*
+out/
+target
+
