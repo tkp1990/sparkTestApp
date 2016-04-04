@@ -1,5 +1,5 @@
-project/target
-project/project
+/project/target
+/project/project
 .class
 .DS_Store
 *.class
@@ -7,5 +7,5 @@ project/project
 .idea
 target/*
 out/
-target
+/target
 
