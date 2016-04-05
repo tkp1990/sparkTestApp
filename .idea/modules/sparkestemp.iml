@@ -18,7 +18,6 @@
       <sourceFolder url="file://$MODULE_DIR$/../../src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../target/scala-2.10/resource_managed/test" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/../../target/resolution-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/../../target/scala-2.11" />
       <excludeFolder url="file://$MODULE_DIR$/../../target/streams" />
     </content>
     <orderEntry type="inheritedJdk" />
@@ -162,7 +161,6 @@
     <orderEntry type="library" name="SBT: antlr:antlr:2.7.7:jar" level="project" />
     <orderEntry type="library" name="SBT: com.google.code.gson:gson:2.2.4:jar" level="project" />
     <orderEntry type="library" name="SBT: com.sun.jersey:jersey-server:1.9:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.antlr:antlr-runtime:3.4:jar" level="project" />
     <orderEntry type="library" name="SBT: org.antlr:stringtemplate:3.2.1:jar" level="project" />
     <orderEntry type="library" name="SBT: org.apache.directory.api:api-asn1-api:1.0.0-M20:jar" level="project" />
     <orderEntry type="library" name="SBT: org.apache.directory.api:api-util:1.0.0-M20:jar" level="project" />
@@ -211,7 +209,6 @@
     <orderEntry type="library" name="SBT: org.apache.spark:spark-mllib_2.10:1.5.1:jar" level="project" />
     <orderEntry type="library" name="SBT: org.slf4j:jcl-over-slf4j:1.7.10:jar" level="project" />
     <orderEntry type="library" name="SBT: org.slf4j:jul-to-slf4j:1.7.10:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.slf4j:slf4j-api:1.7.10:jar" level="project" />
     <orderEntry type="library" name="SBT: org.sonatype.sisu.inject:cglib:2.2.1-v20090111:jar" level="project" />
     <orderEntry type="library" name="SBT: xerces:xercesImpl:2.9.1:jar" level="project" />
     <orderEntry type="library" name="SBT: xml-apis:xml-apis:1.3.04:jar" level="project" />
@@ -253,5 +250,25 @@
     <orderEntry type="library" name="SBT: joda-time:joda-time:2.8.1:jar" level="project" />
     <orderEntry type="library" name="SBT: org.joda:joda-convert:1.7:jar" level="project" />
     <orderEntry type="library" name="SBT: org.scala-stm:scala-stm_2.10:0.7:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.sksamuel.elastic4s:elastic4s_2.10:1.6.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.spatial4j:spatial4j:0.4.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.antlr:antlr-runtime:3.5:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-analyzers-common:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-core:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-grouping:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-highlighter:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-join:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-memory:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-misc:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-queries:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-queryparser:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-sandbox:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-spatial:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.apache.lucene:lucene-suggest:4.10.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.elasticsearch:elasticsearch:1.6.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.ow2.asm:asm:4.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.ow2.asm:asm-commons:4.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.slf4j:slf4j-api:1.7.12:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.yaml:snakeyaml:1.12:jar" level="project" />
   </component>
 </module>

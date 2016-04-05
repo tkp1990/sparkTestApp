@@ -21,6 +21,7 @@ libraryDependencies ++= Seq(
   "org.apache.poi" % "poi" % "3.9",
   "org.mongodb" % "mongo-java-driver" % "3.0.4",
   "org.mongodb" %% "casbah" % "3.1.0",
+  "com.sksamuel.elastic4s" % "elastic4s_2.10" % "1.6.0",
   "com.typesafe.play" % "play-json_2.10" % "2.4.6" exclude("com.fasterxml.jackson.core", "jackson-databind")
 
 )
